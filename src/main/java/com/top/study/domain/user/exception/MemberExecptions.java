@@ -4,7 +4,7 @@ import com.top.study.global.error.ResultTypes;
 import com.top.study.global.error.execption.ExceptionTypes;
 import com.top.study.global.error.execption.RootExecption;
 
-public enum MemberExeptions implements ExceptionTypes{
+public enum MemberExecptions implements ExceptionTypes{
 	
 	NotFoundMemmber	 	(1001, "Member is not found, Check your Email" , ResultTypes.BadRequest),
 	EmptyMember			(1002, "Member does not exist.", ResultTypes.BadRequest),
@@ -16,9 +16,9 @@ public enum MemberExeptions implements ExceptionTypes{
 	private String message;
 	private ResultTypes errorType;
 	
-	private static final Class< ? extends MemberExeption > EXCEPTION_TYPE = MemberExeption.class;
+	private static final Class< ? extends MemberExecption > EXCEPTION_TYPE = MemberExecption.class;
 	
-	private MemberExeptions(int serialNumber, String message, ResultTypes errorType) {
+	private MemberExecptions(int serialNumber, String message, ResultTypes errorType) {
 		this.serialNumber = serialNumber;
 		this.message = message;
 		this.errorType = errorType;
