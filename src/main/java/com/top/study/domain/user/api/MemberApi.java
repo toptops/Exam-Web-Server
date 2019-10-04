@@ -17,7 +17,6 @@ import com.top.study.domain.user.exception.MemberExecptions;
 import com.top.study.global.dto.ResponseFactory;
 import com.top.study.global.dto.RestResponse;
 import com.top.study.global.error.ResultTypes;
-import com.top.study.global.error.execption.ExceptionTypes;
 
 
 @RestController

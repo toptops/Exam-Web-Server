@@ -16,7 +16,7 @@ public class MemberSearchService {
 	
 	public Member getById(String userId) {
 		Optional<Member> member = userRepository.findById(userId);
-		// 교체 필요..
+		
 		member.orElseThrow();
 		
 		return member.get();

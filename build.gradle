@@ -1,6 +1,7 @@
 plugins {
 	id 'org.springframework.boot' version '2.1.8.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id "io.franzbecker.gradle-lombok" version "1.14"
 	id 'com.ewerk.gradle.plugins.querydsl' version '1.0.10'
 	id 'java'
 	id 'war'
@@ -38,7 +39,7 @@ dependencies {
 	implementation group : 'org.springframework.boot', name : 'spring-boot-starter-data-jpa'
 	implementation group : 'org.springframework.boot', name : 'spring-boot-starter-web'
 	implementation group : 'org.springframework.boot', name : 'spring-boot-configuration-processor'
-	implementation group : 'org.springframework.boot',	name : 'spring-boot-starter-log4j2'
+	implementation group : 'org.springframework.boot', name : 'spring-boot-starter-log4j2'
 	
 	implementation group : 'com.fasterxml.jackson.dataformat', name : 'jackson-dataformat-yaml'
 	
@@ -59,43 +60,26 @@ dependencies {
 	testImplementation group : 'org.springframework.boot', name : 'spring-boot-starter-test'
 }
 
-def queryDslOutput = file("src-gen/main/java")
+def querydslSrcDir = 'src/main/generated'
+
+querydsl {
+    library = "com.querydsl:querydsl-apt"
+    jpa = true
+    querydslSourcesDir = querydslSrcDir
+}
+
+compileQuerydsl{
+    options.annotationProcessorPath = configurations.querydsl
+}
+
+configurations {
+    querydsl.extendsFrom compileClasspath
+}
 
 sourceSets {
     main {
         java {
-            srcDir "src-gen/main/java"
+            srcDirs = ['src/main/java', querydslSrcDir]
         }
     }
-}
-
-clean {
-    delete queryDslOutput
-}
-
-task generateQueryDSL(type: JavaCompile, group: "build") {
-    doFirst {
-        if (!queryDslOutput.exists()) {
-            logger.info("Creating `$queryDslOutput` directory")
-
-            if (!queryDslOutput.mkdirs()) {
-                throw new InvalidUserDataException("Unable to create `$queryDslOutput` directory")
-            }
-        }
-    }
-
-    source = sourceSets.main.java
-    classpath = configurations.compile
-    options.compilerArgs = [
-            "-proc:only",
-            "-processor",
-            "com.querydsl.apt.jpa.JPAAnnotationProcessor"
-    ]
-    destinationDir = queryDslOutput
-    options.failOnError = false
-}
-
-compileJava {
-    dependsOn generateQueryDSL 
-    source generateQueryDSL.destinationDir
 }

@@ -31,7 +31,6 @@ public class PostgresqlEntityManagerFactory {
 	@Value("${jpa.properties-location}")
     private String propertiesLoc;
 	
-	//프로퍼티로 뺴서 읽기
 	@Bean( name = "postreqHikariDatatsource")
 	public DataSource postgresqlHikariDatasource() {
 		HikariDataSource hikariDataSource = new HikariDataSource();
@@ -68,11 +67,11 @@ public class PostgresqlEntityManagerFactory {
 	private HibernateJpaVendorAdapter vendorAdapter() {
 		HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 
-		vendorAdapter.setShowSql(true); // SQL 로그를 보여주는 여부.
-		vendorAdapter.setDatabase(Database.POSTGRESQL); // 명시적으로 어떤 디비 쓸껀지 알고리즘.
-		vendorAdapter.setDatabasePlatform("org.hibernate.dialect.PostgreSQL10Dialect"); // 방언 추가.
-		vendorAdapter.setGenerateDdl(true); // hbm2ddl.auto=update
-		vendorAdapter.setPrepareConnection(true); // 하이버네이트 트랜잭션을 JDBC에 연결할지 여부. (기본 True)
+		vendorAdapter.setShowSql(true); 
+		vendorAdapter.setDatabase(Database.POSTGRESQL);
+		vendorAdapter.setDatabasePlatform("org.hibernate.dialect.PostgreSQL10Dialect");
+		vendorAdapter.setGenerateDdl(true);
+		vendorAdapter.setPrepareConnection(true);
 
 		return vendorAdapter;
 	}
