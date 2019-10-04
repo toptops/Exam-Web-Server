@@ -31,7 +31,8 @@ def versions = [
 		querydslApt 	: '4.2.1',
 		querydslPlugin 	: '1.0.9',
 		swagger 		: '2.6.1',
-		swaggerUi		: '2.6.1'		
+		swaggerUi		: '2.6.1',
+		lombok			: '1.18.2'
 ]
 
 
@@ -53,9 +54,9 @@ dependencies {
 	implementation group : 'org.apache.commons', name : 'commons-dbcp2'
 	implementation group : 'com.zaxxer', name :'HikariCP',	version : versions.HikariCP
 	
-	compileOnly group : 'org.projectlombok', name : 'lombok' 
+	compileOnly group : 'org.projectlombok', name : 'lombok', version : versions.lombok
 	runtimeOnly group : 'org.postgresql', name : 'postgresql'
-	annotationProcessor group : 'org.projectlombok', name : 'lombok'
+	annotationProcessor group : 'org.projectlombok', name : 'lombok', version : versions.lombok
 	providedRuntime group : 'org.springframework.boot', name : 'spring-boot-starter-tomcat'
 	testImplementation group : 'org.springframework.boot', name : 'spring-boot-starter-test'
 }
