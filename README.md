@@ -5,4 +5,4 @@ Spring boot Web Server
 -----
 
 #### 참고 사이트
-Yun Blog : [프로젝트 구성](https://github.com/cheese10yun/spring-guide#spring-guide)
+Yun Blog : [프로젝트 구성](https://github.com/cheese10yun/spring-guide/blob/master/docs/directory-guide.md)
