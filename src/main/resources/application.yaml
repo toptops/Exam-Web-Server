@@ -1,0 +1,3 @@
+jpa:
+    properties-location: JPA-Hibernate.properties
+        

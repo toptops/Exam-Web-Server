@@ -1,7 +1,5 @@
 package com.top.study.global.error;
 
-import com.top.study.domain.user.dto.MemberResponse;
-
 import lombok.Getter;
 
 @Getter

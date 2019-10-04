@@ -41,5 +41,4 @@ public class RootExecption extends RuntimeException{
 		this.errorType = errorType;
 		this.errorContent = errorContent;
 	}
-
 }

@@ -1,0 +1,8 @@
+[INFO ] 2019-10-04 14:10:57.015 [main] StudyApplication - Starting StudyApplication on DESKTOP-R1IGLR3 with PID 23596 (C:\Users\eberry\Desktop\sts-workspace\study\bin\main started by eberry in C:\Users\eberry\Desktop\sts-workspace\study)
+[DEBUG] 2019-10-04 14:10:57.020 [main] StudyApplication - Running with Spring Boot v2.1.8.RELEASE, Spring v5.1.9.RELEASE
+[INFO ] 2019-10-04 14:10:57.020 [main] StudyApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2019-10-04 14:11:00.694 [main] StudyApplication - Started StudyApplication in 3.973 seconds (JVM running for 5.181)
+[INFO ] 2019-10-04 14:11:29.525 [main] StudyApplication - Starting StudyApplication on DESKTOP-R1IGLR3 with PID 22404 (C:\Users\eberry\Desktop\sts-workspace\study\bin\main started by eberry in C:\Users\eberry\Desktop\sts-workspace\study)
+[DEBUG] 2019-10-04 14:11:29.532 [main] StudyApplication - Running with Spring Boot v2.1.8.RELEASE, Spring v5.1.9.RELEASE
+[INFO ] 2019-10-04 14:11:29.532 [main] StudyApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2019-10-04 14:11:32.999 [main] StudyApplication - Started StudyApplication in 3.762 seconds (JVM running for 4.996)

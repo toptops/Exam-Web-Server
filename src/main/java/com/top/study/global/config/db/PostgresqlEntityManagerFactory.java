@@ -1,16 +1,11 @@
 package com.top.study.global.config.db;
 
-import java.util.Properties;
-
 import javax.sql.DataSource;
 
 import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.support.PropertiesLoaderUtils;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -33,11 +28,11 @@ import com.zaxxer.hikari.HikariDataSource;
 		)
 public class PostgresqlEntityManagerFactory {
 	
-	@Value("${jpa.properties.location}")
+	@Value("${jpa.properties-location}")
     private String propertiesLoc;
 	
 	//프로퍼티로 뺴서 읽기
-	@Bean( name = "postreqHkariDatatsource")
+	@Bean( name = "postreqHikariDatatsource")
 	public DataSource postgresqlHikariDatasource() {
 		HikariDataSource hikariDataSource = new HikariDataSource();
 		hikariDataSource.setDriverClassName("org.postgresql.Driver");
