@@ -20,7 +20,7 @@ import com.top.study.global.error.execption.GlobalExecptions;
 @SpringBootTest
 public class StudyApplicationTests {
 
-//	private static final Logger logger = LogManager.getLogger(StudyApplicationTests.class);
+//	private static final Logger logger = LogManager.getLogger(.class);
 	
 	@Autowired
 	MemberRepository MemberRepository;

@@ -2,6 +2,8 @@ package com.top.study.global.config.db;
 
 import javax.sql.DataSource;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -27,6 +29,7 @@ import com.zaxxer.hikari.HikariDataSource;
 						}
 		)
 public class PostgresqlEntityManagerFactory {
+	private static final Logger logger = LogManager.getLogger(PostgresqlEntityManagerFactory.class);
 	
 	@Value("${jpa.properties-location}")
     private String propertiesLoc;
@@ -46,6 +49,8 @@ public class PostgresqlEntityManagerFactory {
 	public PlatformTransactionManager jpaTransactionManager() {
 		JpaTransactionManager transactionManager = new JpaTransactionManager();
 		transactionManager.setEntityManagerFactory(entityManagerFactoryBean().getObject());
+		
+		logger.debug("JPA EntitManager Create Success !!");
 		return transactionManager;
 	}
 	
