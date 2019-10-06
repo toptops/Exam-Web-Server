@@ -17,7 +17,7 @@ public class MemberQueryRepositoryImpl extends QuerydslRepositorySupport impleme
 	}
 
 	@Override
-	public List<Member> SearchByAge(int age) {
+	public List<Member> SearchByAgeMembers(int age) {
 		return from(qMember)
 				.where(qMember.age.intValue().like(age + "%"))
 				.fetch();
@@ -32,7 +32,6 @@ public class MemberQueryRepositoryImpl extends QuerydslRepositorySupport impleme
 
 	@Override
 	public List<Member> SearchByLessThanAge(int age) {
-		// TODO Auto-generated method stub
 		return from(qMember)
 				.where(qMember.age.intValue().loe(age))
 				.fetch();

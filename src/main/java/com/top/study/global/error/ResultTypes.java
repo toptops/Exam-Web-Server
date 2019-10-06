@@ -35,4 +35,12 @@ public enum ResultTypes {
 		this.code = code;
 		this.status = status;
 	}
+	
+	public int httpStatus() {
+		return status;
+	}
+	
+	public String resultCode() {
+		return this.code;
+	}
 }
