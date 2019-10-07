@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.top.study.domain.user.dto.MemberResponse;
+import com.top.study.domain.user.dto.MemberResultMessage;
 import com.top.study.domain.user.service.MemberSearchService;
 import com.top.study.global.dto.RestResponseFactory;
 import com.top.study.global.dto.RestResponse;
@@ -27,18 +28,18 @@ public class MemberApi {
 	@GetMapping(value = "/")
 	public RestResponse getAllMember() {
 		logger.info("All Member Select !!");
-		return responseFactory.create("Success All Member Select", MemberResponse.take(memberSearchService.findAll()));
+		return responseFactory.create(MemberResultMessage.FindAllSuccess.getResultMessage(), MemberResponse.take(memberSearchService.findAll()));
 	}
  	
  	@GetMapping(value = "/{userId}")
  	public RestResponse getOneMember(@PathVariable("userId") String memberId) {
  		logger.info("One Member Select !!");
- 		return responseFactory.create("Success One Member Select", MemberResponse.take(memberSearchService.getById(memberId)));
+ 		return responseFactory.create(MemberResultMessage.FindOneSuccess.getResultMessage(), MemberResponse.take(memberSearchService.getById(memberId)));
  	}
  	
  	@GetMapping(value = "/age/{age}")
  	public RestResponse getOneMemberSame(@PathVariable("age") int age) {
  		logger.info("Age Members Select !!");
- 		return responseFactory.create("Success Age Member Select", MemberResponse.take(memberSearchService.findAllSameAge(age)));
+ 		return responseFactory.create(MemberResultMessage.FindSameAgeAllSuccess.getResultMessage(), MemberResponse.take(memberSearchService.findAllSameAge(age)));
  	}
 }

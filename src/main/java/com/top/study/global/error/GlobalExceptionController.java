@@ -1,6 +1,8 @@
 package com.top.study.global.error;
 
 import java.nio.file.AccessDeniedException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -43,7 +45,10 @@ public class GlobalExceptionController {
 	protected ResponseEntity<ErrorResponse> methodArgumentTypeMismatchException(MethodArgumentTypeMismatchException e, HttpServletRequest reqeust) { 
 		logger.error("MethodArgumentTypeMismatch Exception : ", e);
 		
-		final ErrorResponse errorResopnse = errorResponseFactory.create(GlobalExecptions.BadResquest, e);
+		Map<String, Object> errorContent = new HashMap<>();
+		errorContent.put("BadParameter Data", e.getValue());
+		
+		final ErrorResponse errorResopnse = errorResponseFactory.create(GlobalExecptions.BadResquest, errorContent);
 		return new ResponseEntity<>(errorResopnse, HttpStatus.BAD_REQUEST);
 	}
 	
