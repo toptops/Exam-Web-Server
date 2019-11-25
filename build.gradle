@@ -41,6 +41,17 @@ dependencies {
 	implementation group : 'org.springframework.boot', name : 'spring-boot-starter-web'
 	implementation group : 'org.springframework.boot', name : 'spring-boot-configuration-processor'
 	implementation group : 'org.springframework.boot', name : 'spring-boot-starter-log4j2'
+	implementation group : 'org.springframework.boot', name : 'spring-boot-starter-data-redis'
+	implementation group : 'org.springframework.boot', name : 'spring-boot-starter-oauth2-client'
+	implementation group : 'org.springframework.boot', name : 'spring-boot-starter-oauth2-resource-server'
+	implementation group : 'org.springframework.boot', name : 'spring-boot-starter-security'
+	implementation group : 'org.springframework.cloud', name : 'spring-cloud-starter-netflix-eureka-client'
+	implementation group : 'org.springframework.cloud', name : 'spring-cloud-starter-netflix-eureka-server'
+	implementation group : 'org.springframework.cloud', name : 'spring-cloud-starter-netflix-hystrix'
+	implementation group : 'org.springframework.cloud', name : 'spring-cloud-starter-netflix-ribbon'
+	implementation group : 'org.springframework.cloud', name : 'spring-cloud-starter-netflix-zuul'
+	implementation group : 'org.springframework.cloud', name : 'spring-cloud-starter-oauth2'
+	
 	
 	implementation group : 'com.fasterxml.jackson.dataformat', name : 'jackson-dataformat-yaml'
 	
@@ -53,6 +64,9 @@ dependencies {
 	
 	implementation group : 'org.apache.commons', name : 'commons-dbcp2'
 	implementation group : 'com.zaxxer', name :'HikariCP',	version : versions.HikariCP
+	
+	implementation group : 'io.netty', name: 'netty-all', version: '4.1.42.Final'
+	
 	
 	compileOnly group : 'org.projectlombok', name : 'lombok', version : versions.lombok
 	runtimeOnly group : 'org.postgresql', name : 'postgresql'
